@@ -1,0 +1,41 @@
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Chest</th>
+        <th scope="col">Thigh</th>
+        <th scope="col">Upper Arm</th>
+        <th scope="col">Waist</th>
+        <th scope="col">Hips</th>
+        <th scope="col">Trend</th>
+        <th scope="col">Comment</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    {{#each user_assessments}}
+        <tr>
+            <td>{{date}}</td>
+            <td>{{weight}}</td>
+            <td>{{chest}}</td>
+            <td>{{thigh}}</td>
+            <td>{{upper_arm}}</td>
+            <td>{{waist}}</td>
+            <td>{{hips}}</td>
+            <td> <--- </td>
+            <td>
+
+                <form action="/playlist/{{id}}/addComment" method="POST">
+                    <input type="text" name="comment" placeholder="{{comment}}">
+                    <button class="ui blue submit button">Save Comment</button>
+                </form>
+
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+

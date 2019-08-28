@@ -1,0 +1,47 @@
+{{> menu id="dashboard"}}
+
+{{#if type.member }}
+<section class="ui segment">
+    <div class="row" style="padding: 2%">
+        <div class="col-md-3">
+
+            <i class="fa fa-user fa-3x" style="margin-left: 10%"></i>
+            <br>
+            <p>{{user.firstName}} {{user.lastName}}</p>
+
+        </div>
+        <div class="col-md-3">
+
+            <i class="fa fa-tachometer fa-3x" style="margin-left: 25%"></i>
+            <br>
+            <p>IDEAL WEIGHT INDICATOR</p>
+
+        </div>
+        <div class="col-md-3">
+
+            <i class="fa fa-heartbeat fa-3x" > {{bmi}}</i>
+            <br>
+            <p style="margin-left: 25%">BMI</p>
+
+        </div>
+        <div class="col-md-3">
+
+            <i class="fa fa-user-md fa-3x" style="margin-left: 25%"></i>
+            <br>
+            <p>VERY SEVERELY OBESE</p>
+
+        </div>
+    </div>
+    {{> addplaylist}}
+    {{> listplaylists}}
+</section>
+
+{{else}}
+    <section class="ui segment">
+
+    {{> listMembers}}
+
+    </section>
+
+{{/if}}
+
