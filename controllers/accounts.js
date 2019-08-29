@@ -35,6 +35,7 @@ const accounts = {
     const user = request.body;
     user.id = uuid();
     user.type = "Member"; //By default only member can sign up, trainers are pre loaded in json file
+    user.goals = [];
     userstore.addUser(user);
     logger.info(`registering ${user.email}`);
     response.redirect("/");
@@ -42,7 +43,7 @@ const accounts = {
 
   authenticate(request, response) {
     const user = userstore.getUserByEmail(request.body.email);
-    if (user) {
+    if (user.password === request.body.password) {
       response.cookie("playlist", user.email);
       logger.info(`logging in ${user.email}`);
       response.redirect("/dashboard");

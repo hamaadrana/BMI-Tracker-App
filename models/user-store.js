@@ -39,7 +39,13 @@ const userStore = {
     const user = this.getUserById(id);
     this.store.remove(this.collection, user);
     this.store.save();
+  },
+  addUserGoals(id, goal){
+    let user = this.getUserById(id);
+    user.goals.push(goal);
+    this.store.save();
   }
+
 };
 
 module.exports = userStore;

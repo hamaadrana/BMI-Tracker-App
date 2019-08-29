@@ -12,6 +12,19 @@
       "hips": "33",
       "trend": true,
       "comment": "Very nice!"
+    },
+    {
+      "id": "4c6a08e2-d37a-45f8-98b4-9df6cf960bb1",
+      "userid": "4b4b9943-b5e2-4856-bd67-ad9c662639d0",
+      "date": "2019-08-29 13:52:03",
+      "weight": "74",
+      "upper_arm": "44",
+      "chest": "44",
+      "waist": "44",
+      "thigh": "44",
+      "hips": "44",
+      "trend": false,
+      "comment": "Wow!"
     }
   ]
 }

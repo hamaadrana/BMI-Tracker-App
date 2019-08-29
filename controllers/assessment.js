@@ -1,18 +1,18 @@
 "use strict";
 
 const logger = require("../utils/logger");
-const playlistStore = require("../models/playlist-store");
+const playlistStore = require("../models/assessment-store");
 const userStore = require("../models/user-store");
 const uuid = require("uuid");
 
-const playlist = {
+const assessment = {
   index(request, response) {
     const userid = request.params.id;
     const viewData = {
       user: userStore.getUserById(userid),
-      user_assessments: playlistStore.getUserPlaylists(userid)
+      user_assessments: playlistStore.getUserAssessments(userid)
     };
-    response.render("playlist", viewData);
+    response.render("assessment", viewData);
   },
 
   deleteSong(request, response) {
@@ -20,12 +20,12 @@ const playlist = {
     const songId = request.params.songid;
     logger.debug(`Deleting Song ${songId} from Playlist ${playlistId}`);
     playlistStore.removeSong(playlistId, songId);
-    response.redirect("/playlist/" + playlistId);
+    response.redirect("/assessment/" + playlistId);
   },
 
   addSong(request, response) {
     const playlistId = request.params.id;
-    const playlist = playlistStore.getPlaylist(playlistId);
+    const playlist = playlistStore.getAssessment(playlistId);
     const newSong = {
       id: uuid(),
       title: request.body.title,
@@ -34,7 +34,7 @@ const playlist = {
     };
     logger.debug("New Song = ", newSong);
     playlistStore.addSong(playlistId, newSong);
-    response.redirect("/playlist/" + playlistId);
+    response.redirect("/assessment/" + playlistId);
   },
   addComment(request, response) {
     const playlistId = request.params.id;
@@ -44,4 +44,4 @@ const playlist = {
   }
 };
 
-module.exports = playlist;
+module.exports = assessment;

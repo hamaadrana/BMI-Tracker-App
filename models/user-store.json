@@ -10,19 +10,117 @@
       "height": "180",
       "weight": "78",
       "type": "Trainer",
+      "goals": [],
       "id": "a61107c3-d01a-4c7d-80ec-533fb3551c42"
     },
     {
       "firstName": "member",
       "lastName": "two",
-      "email": "member2@nomail.com",
+      "email": "member@nomail.com",
       "password": "pass",
       "address": "Lahore",
       "gender": "male",
       "height": "177",
       "weight": "77",
       "id": "4b4b9943-b5e2-4856-bd67-ad9c662639d0",
-      "type": "Member"
+      "type": "Member",
+      "goals": [
+        {
+          "measurements": {
+            "weight": "67",
+            "upper_arm": "33",
+            "chest": "33",
+            "waist": "33",
+            "thigh": "33",
+            "hips": "333"
+          },
+          "date": "2019-12-19",
+          "status": "Open"
+        },
+        {
+          "measurements": {
+            "weight": "88",
+            "upper_arm": "55",
+            "chest": "55",
+            "waist": "55",
+            "thigh": "55",
+            "hips": "55"
+          },
+          "date": "2020-01-11",
+          "status": "Open"
+        },
+        {
+          "measurements": {
+            "weight": "74",
+            "upper_arm": "33",
+            "chest": "33",
+            "waist": "33",
+            "thigh": "33",
+            "hips": "33"
+          },
+          "date": "2019-08-29",
+          "status": "Achieved"
+        },
+        {
+          "measurements": {
+            "weight": "54",
+            "upper_arm": "44",
+            "chest": "44",
+            "waist": "44",
+            "thigh": "44",
+            "hips": "44"
+          },
+          "date": "2019-08-27",
+          "status": "Missed"
+        },
+        {
+          "measurements": {
+            "weight": "55",
+            "upper_arm": "55",
+            "chest": "55",
+            "waist": "55",
+            "thigh": "55",
+            "hips": "55"
+          },
+          "date": "2019-10-18",
+          "status": "Open"
+        },
+        {
+          "measurements": {
+            "weight": "56",
+            "upper_arm": "55",
+            "chest": "55",
+            "waist": "55",
+            "thigh": "55",
+            "hips": "55"
+          },
+          "date": "2019-09-13",
+          "status": "Open"
+        },
+        {
+          "measurements": {
+            "weight": "43",
+            "upper_arm": "33",
+            "chest": "33",
+            "waist": "33",
+            "thigh": "33",
+            "hips": "33"
+          },
+          "date": "2019-09-07",
+          "status": "Open"
+        },
+        {
+          "measurements": {
+            "weight": "56",
+            "upper_arm": "55",
+            "chest": "55",
+            "waist": "55",
+            "thigh": "55",
+            "hips": "55"
+          },
+          "date": "2019-06-07"
+        }
+      ]
     }
   ]
 }

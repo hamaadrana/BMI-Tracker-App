@@ -1,21 +1,26 @@
 {{> menu id="dashboard"}}
 
 {{#if type.member }}
-<section class="ui segment">
+
+    {{# if count}}
+        <input type="hidden" id="message" value="{{message}}">
+        <script>
+            var message = document.getElementById("message");
+            JSAlert.alert(message.value);
+        </script>
+    {{/if}}
+
+    <section class="ui segment">
     <div class="row" style="padding: 2%">
         <div class="col-md-3">
-
             <i class="fa fa-user fa-3x" style="margin-left: 10%"></i>
             <br>
             <p>{{user.firstName}} {{user.lastName}}</p>
-
         </div>
         <div class="col-md-3">
-
             <i class="fa fa-tachometer fa-3x" style="margin-left: 25%; color: red"></i>
             <br>
             <p>IDEAL WEIGHT INDICATOR</p>
-
         </div>
         <div class="col-md-3">
 
@@ -25,23 +30,21 @@
 
         </div>
         <div class="col-md-3">
-
             <i class="fa fa-user-md fa-3x" style="margin-left: 25%"></i>
             <br>
             <p>{{bmi_category}}</p>
-
         </div>
     </div>
-    {{> addplaylist}}
-    {{> listplaylists}}
+    <hr>
+    <a href="/user/{{user.id}}/goals"><button class="btn btn-primary"> Add Goals </button></a>
+    <hr>
+    {{> addAssessment}}
+    {{> listAssessments}}
 </section>
 
 {{else}}
     <section class="ui segment">
-
     {{> listMembers}}
-
     </section>
 
 {{/if}}
-

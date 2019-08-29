@@ -3,52 +3,52 @@
 const _ = require("lodash");
 const JsonStore = require("./json-store");
 
-const playlistStore = {
-  store: new JsonStore("./models/playlist-store.json", {
+const assessmentStore = {
+  store: new JsonStore("./models/assessment-store.json", {
     playlistCollection: []
   }),
   collection: "playlistCollection",
 
-  getAllPlaylists() {
+  getAllAssessments() {
     return this.store.findAll(this.collection);
   },
 
-  getPlaylist(id) {
+  getAssessment(id) {
     return this.store.findOneBy(this.collection, { id: id });
   },
 
-  getUserPlaylists(userid) {
+  getUserAssessments(userid) {
     return this.store.findBy(this.collection, { userid: userid });
   },
 
-  addPlaylist(playlist) {
+  addAssessment(playlist) {
     this.store.add(this.collection, playlist);
     this.store.save();
   },
 
-  removePlaylist(id) {
-    const playlist = this.getPlaylist(id);
-    this.store.remove(this.collection, playlist);
+  removeAssessment(id) {
+    const assessment = this.getAssessment(id);
+    this.store.remove(this.collection, assessment);
     this.store.save();
   },
 
-  removeAllPlaylists() {
+  removeAllAssessments() {
     this.store.removeAll(this.collection);
     this.store.save();
   },
 
   addComment(id, comment) {
-    const playlist = this.getPlaylist(id);
-    playlist.comment = comment;
+    const assessment = this.getAssessment(id);
+    assessment.comment = comment;
     this.store.save();
   },
 
   removeSong(id, songId) {
-    const playlist = this.getPlaylist(id);
+    const playlist = this.getAssessment(id);
     const songs = playlist.songs;
     _.remove(songs, { id: songId });
     this.store.save();
   }
 };
 
-module.exports = playlistStore;
+module.exports = assessmentStore;

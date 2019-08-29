@@ -1,65 +1,65 @@
 "use strict";
 const accounts = require("./accounts.js");
 const logger = require("../utils/logger");
-const playlistStore = require("../models/playlist-store");
+const assessmentStore = require("../models/assessment-store");
 const userStore = require("../models/user-store");
 const uuid = require("uuid");
 const helpers = require("../utils/helper");
-
+let count = 0;
 const dashboard = {
   index(request, response) {
     logger.info("dashboard rendering");
     const loggedInUser = accounts.getCurrentUser(request);
     const user = userStore.getUserById(loggedInUser.id);
-    const user_assessments = playlistStore.getUserPlaylists(loggedInUser.id);
-    let latestWeight;
-    if(user_assessments.length > 0){
-      latestWeight = user_assessments[user_assessments.length-1].weight;
-    }else{
-      latestWeight = user.weight;
-    }
+    const user_assessments = assessmentStore.getUserAssessments(loggedInUser.id);
+    let latestWeight = user_assessments.length > 0 ? user_assessments[user_assessments.length-1].weight : user.weight;
     const bmi = helpers.calculateBMI(latestWeight, user);
     const bmi_category =  helpers.getBMICategory(bmi);
-    const assessments = playlistStore.getAllPlaylists();
+    const assessments = assessmentStore.getAllAssessments();
     var members = userStore.getAllUsers();
     members = members.filter((user) => {
         return user.type === "Member";
     });
-
+    let message = "Set your goals and make them happen!";
+    if(user.type === "Member"){
+      count++;
+      if(user.goals.length > 0){
+        message = "Your last goal status is: "  + helpers.getGoalStatus(user.goals[user.goals.length - 1], user_assessments)
+      }
+    }
     const viewData = {
-      title: "Playlist Dashboard",
-      playlists: user_assessments,
+      title: "Assessment Dashboard",
+      assessments: user_assessments,
       user: user,
       bmi: bmi,
+      count: count === 1,
+      message: message,
       bmi_category: bmi_category,
       all_assessments:assessments,
       type: {member: user.type === "Member", trainer: user.type === "Trainer"},
       members: members
     };
-    logger.info("about to render", playlistStore.getAllPlaylists());
+    logger.info("about to render", assessmentStore.getAllAssessments());
     response.render("dashboard", viewData);
   },
 
-  deletePlaylist(request, response) {
-    const playlistId = request.params.id;
-    logger.debug(`Deleting Playlist ${playlistId}`);
-    playlistStore.removePlaylist(playlistId);
+  deleteAssessment(request, response) {
+    const assessID = request.params.id;
+    assessmentStore.removeAssessment(assessID);
     response.redirect("/dashboard");
   },
 
-  addPlaylist(request, response) {
+  addAssessment(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
-    const user_assessments = playlistStore.getUserPlaylists(loggedInUser.id);
+    const user_assessments = assessmentStore.getUserAssessments(loggedInUser.id);
     let trend = true;
     if(user_assessments.length > 1){
       trend = user_assessments[user_assessments.length-2].weight > user_assessments[user_assessments.length-1].weight;
     }
-
-
-    const newPlayList = {
+    const newAssess = {
       id: uuid(),
       userid: loggedInUser.id,
-      date: getcurrentDate(),
+      date: helpers.getcurrentDate(),
       weight: request.body.weight,
       upper_arm: request.body.upper_arm,
       chest: request.body.chest,
@@ -68,25 +68,10 @@ const dashboard = {
       hips: request.body.hips,
       trend: trend
     };
-    logger.info(newPlayList);
-
-    logger.debug("Creating a new Playlist", newPlayList);
-    playlistStore.addPlaylist(newPlayList);
+    assessmentStore.addAssessment(newAssess);
     response.redirect("/dashboard");
   },
 
 };
-
-function getcurrentDate(){
-  var dt = new Date();
-  var DD = ("0" + dt.getDate()).slice(-2);
-  var MM = ("0" + (dt.getMonth() + 1)).slice(-2);
-  var YYYY = dt.getFullYear();
-  var hh = ("0" + dt.getHours()).slice(-2);
-  var mm = ("0" + dt.getMinutes()).slice(-2);
-  var ss = ("0" + dt.getSeconds()).slice(-2);
-  return YYYY + "-" + MM + "-" + DD + " " + hh + ":" + mm + ":" + ss;
-}
-
 
 module.exports = dashboard;
