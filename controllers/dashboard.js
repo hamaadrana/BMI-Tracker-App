@@ -19,16 +19,19 @@ const dashboard = {
       latestWeight = user.weight;
     }
     const bmi = helpers.calculateBMI(latestWeight, user);
+    const bmi_category =  helpers.getBMICategory(bmi);
     const assessments = playlistStore.getAllPlaylists();
     var members = userStore.getAllUsers();
     members = members.filter((user) => {
         return user.type === "Member";
     });
+
     const viewData = {
       title: "Playlist Dashboard",
       playlists: user_assessments,
       user: user,
       bmi: bmi,
+      bmi_category: bmi_category,
       all_assessments:assessments,
       type: {member: user.type === "Member", trainer: user.type === "Trainer"},
       members: members
@@ -46,6 +49,13 @@ const dashboard = {
 
   addPlaylist(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
+    const user_assessments = playlistStore.getUserPlaylists(loggedInUser.id);
+    let trend = true;
+    if(user_assessments.length > 1){
+      trend = user_assessments[user_assessments.length-2].weight > user_assessments[user_assessments.length-1].weight;
+    }
+
+
     const newPlayList = {
       id: uuid(),
       userid: loggedInUser.id,
@@ -56,7 +66,7 @@ const dashboard = {
       waist: request.body.waist,
       thigh: request.body.thigh,
       hips: request.body.hips,
-      songs: []
+      trend: trend
     };
     logger.info(newPlayList);
 

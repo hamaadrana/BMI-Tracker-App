@@ -10,8 +10,8 @@ const app = express();
 app.use(cookieParser());
 const exphbs = require("express-handlebars");
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static("/public"));
-
+app.use(express.static("public"));
+// app.use(express.static(__dirname + 'public'))
 
 app.use(fileUpload());
 app.engine(

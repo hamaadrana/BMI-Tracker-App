@@ -4,7 +4,7 @@
       "firstName": "Trainer",
       "lastName": "Admin",
       "email": "trainer@nomail.com",
-      "password": "admin",
+      "password": "pass",
       "address": "Lahore",
       "gender": "Male",
       "height": "180",
@@ -13,30 +13,15 @@
       "id": "a61107c3-d01a-4c7d-80ec-533fb3551c42"
     },
     {
-      "id": "a61107c3-d01a-4c7d-80ec-533fb3551c41"
-    },
-    {
-      "firstName": "Nabeel",
-      "lastName": "Sheikh",
+      "firstName": "member",
+      "lastName": "two",
       "email": "member2@nomail.com",
-      "password": "admin",
-      "address": "Lahore",
-      "gender": "Male",
-      "height": "170",
-      "weight": "77",
-      "type": "Member",
-      "id": "b2bcc8bc-3f6f-47a5-b0a7-42969235b25d"
-    },
-    {
-      "firstName": "Member",
-      "lastName": "One",
-      "email": "member@nomail.com",
       "password": "pass",
-      "address": "New York",
+      "address": "Lahore",
       "gender": "male",
       "height": "177",
       "weight": "77",
-      "id": "b6ddcad4-6488-447c-b985-5e352581597e",
+      "id": "4b4b9943-b5e2-4856-bd67-ad9c662639d0",
       "type": "Member"
     }
   ]

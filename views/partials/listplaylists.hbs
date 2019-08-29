@@ -26,7 +26,13 @@
                   <td>{{upper_arm}}</td>
                   <td>{{waist}}</td>
                   <td>{{hips}}</td>
-                  <td> <--- </td>
+                  <td>
+                  {{#if trend}}
+                      <i class="fa fa-arrow-left" style="color: green"></i>
+                  {{else}}
+                      <i class="fa fa-arrow-left" style="color: red"></i>
+                  {{/if}}
+                  </td>
                   <td>{{comment}}</td>
                   <td>
                       <a href="/dashboard/deleteplaylist/{{id}}" class="ui icon button">

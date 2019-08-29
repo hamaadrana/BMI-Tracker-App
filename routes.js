@@ -14,6 +14,7 @@ router.get("/signup", accounts.signup);
 router.get("/logout", accounts.logout);
 router.get("/edit-profile", accounts.editUser);
 router.post("/update-user", accounts.updateUser);
+router.get("/deleteUser/:id", accounts.deleteUser);
 
 
 router.post("/register", accounts.register);

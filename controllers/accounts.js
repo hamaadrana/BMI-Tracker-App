@@ -66,6 +66,11 @@ const accounts = {
     const loggedInUser = accounts.getCurrentUser(request);
     userstore.updateUser(loggedInUser.id, request.body);
     response.redirect("/dashboard")
+  },
+  deleteUser(request, response){
+    const userid = request.params.id;
+    userstore.removeUser(userid);
+    response.redirect("/dashboard");
   }
 
 

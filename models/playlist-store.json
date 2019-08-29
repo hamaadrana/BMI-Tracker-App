@@ -1,104 +1,17 @@
 {
   "playlistCollection": [
     {
-      "id": "2b54e372-c38e-495e-81aa-c10a0343d83c",
-      "userid": "08b6621f-db31-4fab-a32f-a8b7ee8a0d4e",
-      "date": "2019-08-27 16:27:07",
-      "weight": "33",
+      "id": "403d4adb-9767-4621-91e3-9b99e33b9794",
+      "userid": "4b4b9943-b5e2-4856-bd67-ad9c662639d0",
+      "date": "2019-08-29 13:29:51",
+      "weight": "76",
       "upper_arm": "33",
-      "chest": "44",
-      "waist": "12",
-      "thigh": "32",
-      "hips": "33",
-      "songs": []
-    },
-    {
-      "id": "c508e12b-db4c-447b-b515-b90df3b7a17a",
-      "userid": "08b6621f-db31-4fab-a32f-a8b7ee8a0d4e",
-      "date": "2019-08-27 16:28:19",
-      "weight": "",
-      "upper_arm": "",
-      "chest": "",
-      "waist": "",
-      "thigh": "",
-      "hips": "",
-      "songs": []
-    },
-    {
-      "id": "5098552f-f7ce-46de-a62c-d6b6c376e21b",
-      "userid": "08b6621f-db31-4fab-a32f-a8b7ee8a0d4e",
-      "date": "2019-08-28 01:42:34",
-      "weight": "",
-      "upper_arm": "",
-      "chest": "",
-      "waist": "",
-      "thigh": "",
-      "hips": "",
-      "songs": []
-    },
-    {
-      "id": "8310ca63-bcde-4f50-997f-0023c76b9a9e",
-      "userid": "a61107c3-d01a-4c7d-80ec-533fb3551c41",
-      "date": "2019-08-28 13:07:00",
-      "weight": "77",
-      "upper_arm": "33",
-      "chest": "55",
-      "waist": "22",
-      "thigh": "44",
-      "hips": "13",
-      "songs": [],
-      "comment": "Zcxzcc"
-    },
-    {
-      "id": "a70acf3d-c600-4f92-8861-363e00b0a809",
-      "userid": "a61107c3-d01a-4c7d-80ec-533fb3551c41",
-      "date": "2019-08-28 13:55:34",
-      "weight": "74",
-      "upper_arm": "33",
-      "chest": "34",
-      "waist": "44",
-      "thigh": "43",
-      "hips": "22",
-      "songs": []
-    },
-    {
-      "id": "772bd280-70b7-4b72-9d9e-2402398d2ff9",
-      "userid": "a61107c3-d01a-4c7d-80ec-533fb3551c41",
-      "date": "2019-08-28 14:15:51",
-      "weight": "68",
-      "upper_arm": "55",
-      "chest": "44",
-      "waist": "44",
-      "thigh": "55",
-      "hips": "55",
-      "songs": [],
-      "comment": "dssf"
-    },
-    {
-      "id": "76451ead-0fb6-40b4-885c-d1ede95ff852",
-      "userid": "b2bcc8bc-3f6f-47a5-b0a7-42969235b25d",
-      "date": "2019-08-28 15:20:01",
-      "weight": "90",
-      "upper_arm": "22",
-      "chest": "44",
+      "chest": "33",
       "waist": "33",
       "thigh": "33",
-      "hips": "22",
-      "songs": [],
-      "comment": "Very Good"
-    },
-    {
-      "id": "41990461-34de-4337-8910-e96e4164fbc1",
-      "userid": "b6ddcad4-6488-447c-b985-5e352581597e",
-      "date": "2019-08-28 17:36:15",
-      "weight": "78",
-      "upper_arm": "13",
-      "chest": "33",
-      "waist": "34",
-      "thigh": "22",
       "hips": "33",
-      "songs": [],
-      "comment": "Good! You are improving"
+      "trend": true,
+      "comment": "Very nice!"
     }
   ]
 }

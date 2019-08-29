@@ -34,6 +34,11 @@ const userStore = {
     user.height = new_user.height;
     user.weight = new_user.weight;
     this.store.save();
+  },
+  removeUser(id) {
+    const user = this.getUserById(id);
+    this.store.remove(this.collection, user);
+    this.store.save();
   }
 };
 
