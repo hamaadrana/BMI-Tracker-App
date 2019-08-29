@@ -2,13 +2,15 @@
 
 {{#if type.member }}
 
-    {{# if count}}
         <input type="hidden" id="message" value="{{message}}">
         <script>
-            var message = document.getElementById("message");
-            JSAlert.alert(message.value);
+            var alerted = localStorage.getItem('alerted') || '';
+            if (alerted !== 'yes') {
+                var message = document.getElementById("message");
+                JSAlert.alert(message.value);
+                localStorage.setItem('alerted','yes');
+            }
         </script>
-    {{/if}}
 
     <section class="ui segment">
     <div class="row" style="padding: 2%">

@@ -5,7 +5,6 @@ const assessmentStore = require("../models/assessment-store");
 const userStore = require("../models/user-store");
 const uuid = require("uuid");
 const helpers = require("../utils/helper");
-let count = 0;
 const dashboard = {
   index(request, response) {
     logger.info("dashboard rendering");
@@ -22,7 +21,6 @@ const dashboard = {
     });
     let message = "Set your goals and make them happen!";
     if(user.type === "Member"){
-      count++;
       if(user.goals.length > 0){
         message = "Your last goal status is: "  + helpers.getGoalStatus(user.goals[user.goals.length - 1], user_assessments)
       }
@@ -32,7 +30,6 @@ const dashboard = {
       assessments: user_assessments,
       user: user,
       bmi: bmi,
-      count: count === 1,
       message: message,
       bmi_category: bmi_category,
       all_assessments:assessments,
